@@ -1,0 +1,69 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Price prediction{% endblock %}
+
+<div>
+    <div class="container">
+        
+            
+        </div>
+    </div>
+</div>
+
+
+{% block content %}
+<div class='container'>
+	<h2>Price prediction using XGBoost</h2>
+	<h3>Predict the price of a house in Ames, Iowa based on some features.</h3>
+	<p>Please be aware that predictions have an error margin of ~$21333</p>
+	<p>Please fill in all the boxes below.</p>
+	
+	<p><a href="{{ url_for('index') }}">Refresh page</a></p>
+		<div class='left' style="float:left;width:50%;">
+			{{ wtf.quick_form(form) }}
+			<h3>{% if session.get('pred') %} The house with the features you selected is predicted to be worth: ${{session.get('pred')['pred']}}</h3>
+			<h4>{% else %} {% endif %}</h4>
+			<br>
+		</div>
+	<div>
+	<div class='page-header' style="text-align:center;">
+		<h3>Data Descriptions</h3>
+	</div>
+		<div class='right' style="float:right;width:40%;height:800px;width:35%;overflow:auto;"> 
+				<div>
+						
+						<p><b>1. OverallQual</b></p>
+						<ul>The overall quality of the house (1-10)</ul>
+						
+						<p><b>2. GrLivArea</b></p>
+						<ul>The ground living area measured in square feet.</ul>
+						
+						<p><b>3. GarageCars</b></p>
+						<ul>How many cars the garage can fit.</ul>
+						
+						<p><b>4. GarageArea</b></p>
+						<ul>The ground area of the garage measured in square feet.</ul>
+						
+						<p><b>5. TotalBsmtSF</b></p>
+						<ul>The ground area of the basement measured in square feet.</ul>
+						
+						<p><b>6. FullBath</b></p>
+						<ul>How many full baths the house has.</ul>
+						
+						<p><b>7. TotRmsAbvGrd</b></p>
+						<ul>Amount of rooms above ground.</ul>
+						
+						<p><b>8. YearBuilt</b></p>
+						<ul>The year the house was built.</ul>
+						
+						<p><b>9. YearRemodAdd</b></p>
+						<ul>The year the house was remodeled last. Set as the same as the YearBuilt if no remodelling has been performed.</ul>
+						
+						<p><b>10. GarageYrBlt</b></p>
+						<ul>The year the garage was constructed. </ul>	
+				</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
