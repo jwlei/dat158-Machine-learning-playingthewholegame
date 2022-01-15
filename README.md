@@ -1,5 +1,9 @@
 # ML2_Group23
 
+A Machine learning project aiming to predict the price of a house based on user input. 
+
+__________________________________________
+
 To launch the application:
 
 Open anaconda prompt
